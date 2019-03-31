@@ -6,12 +6,8 @@ BanchouPatcher es una GUI para crear parches para archivos utilizando xdelta3. E
 
     $ qmake
     $ make
-
-Los siguientes pasos son opcionales
-
-    # make install
-    # cp icons/icon.png /usr/share/icons/hicolor/256x256/apps/BanchouPatcher3.png
-    # cp BanchouPatcher3.desktop /usr/share/applications/BanchouPatcher3.desktop
+    # make install // Opcional
+    
 El ejecutable se encontrará dentro del directorio del proyecto, o en caso de haberse instalado, en `/usr/bin/BanchouPatcher3`.
 
 ## Requisitos

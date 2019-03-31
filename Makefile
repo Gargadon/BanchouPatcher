@@ -846,9 +846,27 @@ uninstall_target: FORCE
 	-$(DEL_DIR) $(INSTALL_ROOT)/usr/bin/ 
 
 
-install: install_target  FORCE
+install_icono: first FORCE
+	@test -d $(INSTALL_ROOT)/usr/share/icons/hicolor/256x256/apps || mkdir -p $(INSTALL_ROOT)/usr/share/icons/hicolor/256x256/apps
+	-$(QINSTALL) /home/gargadon/BanchouPatcher3/BanchouPatcher3.png $(INSTALL_ROOT)/usr/share/icons/hicolor/256x256/apps/BanchouPatcher3.png
 
-uninstall: uninstall_target  FORCE
+uninstall_icono: FORCE
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/share/icons/hicolor/256x256/apps/BanchouPatcher3.png
+	-$(DEL_DIR) $(INSTALL_ROOT)/usr/share/icons/hicolor/256x256/apps/ 
+
+
+install_escritorio: first FORCE
+	@test -d $(INSTALL_ROOT)/usr/share/applications || mkdir -p $(INSTALL_ROOT)/usr/share/applications
+	-$(QINSTALL) /home/gargadon/BanchouPatcher3/BanchouPatcher3.png $(INSTALL_ROOT)/usr/share/applications/BanchouPatcher3.png
+
+uninstall_escritorio: FORCE
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/share/applications/BanchouPatcher3.png
+	-$(DEL_DIR) $(INSTALL_ROOT)/usr/share/applications/ 
+
+
+install: install_target install_icono install_escritorio  FORCE
+
+uninstall: uninstall_target uninstall_icono uninstall_escritorio  FORCE
 
 FORCE:
 

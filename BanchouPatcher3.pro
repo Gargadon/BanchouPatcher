@@ -45,5 +45,13 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /usr/bin
 !isEmpty(target.path): INSTALLS += target
 
+icono.path = /usr/share/icons/hicolor/256x256/apps
+icono.files = BanchouPatcher3.png
+INSTALLS += icono
+
+escritorio.path = /usr/share/applications
+escritorio.files = BanchouPatcher3.png
+INSTALLS += escritorio
+
 RESOURCES += \
     resources.qrc
