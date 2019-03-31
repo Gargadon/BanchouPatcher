@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>icons/icon.png</file>
-        <file>icons/Banchoupatcher3.png</file>
         <file>files/xdelta3.exe</file>
         <file>files/musashi-miyamoto-sw.jpg</file>
+        <file>BanchouPatcher3.desktop</file>
     </qresource>
 </RCC>
