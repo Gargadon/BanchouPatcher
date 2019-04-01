@@ -4,5 +4,7 @@
         <file>files/xdelta3.exe</file>
         <file>files/musashi-miyamoto-sw.jpg</file>
         <file>BanchouPatcher3.desktop</file>
+        <file>files/zip.exe</file>
+        <file>icons/icon.ico</file>
     </qresource>
 </RCC>

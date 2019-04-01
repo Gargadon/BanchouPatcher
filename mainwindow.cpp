@@ -20,8 +20,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::on_OrigenBoton_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,tr("Abrir archivo de origen"),
@@ -86,8 +84,25 @@ void MainWindow::on_patchNow_clicked()
 
         QString vcdiff = tempDir + "/" + PrefijoParche + ".vcdiff";
 
+        // Copiamos xdelta3.exe
+        QString Origendelta = ":/files/xdelta3.exe";
+        QString Destinodelta = tempDir + "/xdelta3.exe";
+        QFile::copy(Origendelta,Destinodelta);
+
+        // Determinamos si es Windows o Linux
+        QSysInfo osname;
+        QString os = osname.productType();
+
         // Creamos el parche
-        QString xdelta = "xdelta3";
+        QString xdelta;
+        if(os=="windows")
+        {
+            xdelta = Destinodelta;
+        }
+        else
+        {
+            xdelta = "xdelta3";
+        }
         QStringList argumentos;
         argumentos<<"-e"<<"-s"<<origen<<destino<<vcdiff;
         QProcess *myProcess = new QProcess(parent());
@@ -118,11 +133,6 @@ void MainWindow::on_patchNow_clicked()
         stream3 << TextoLeeme;
         file3.close();
 
-        // Copiamos xdelta3.exe
-        QString Origendelta = ":/files/xdelta3.exe";
-        QString Destinodelta = tempDir + "/xdelta3.exe";
-        QFile::copy(Origendelta,Destinodelta);
-
         bool checkedzip = ui->Comprimir->isChecked();
 
         if(checkedzip==true)
@@ -131,7 +141,17 @@ void MainWindow::on_patchNow_clicked()
             QString nombrezip = directorio + "/" + PrefijoParche + ".zip";
 
             // Creamos el zip
-            QString zip = "zip";
+            QString zip;
+            if(os=="windows")
+            {
+                QString Origenzip = ":/files/zip.exe";
+                QString Destinozip = tempDir + "/zip.exe";
+                QFile::copy(Origenzip,Destinozip);
+                zip = Destinozip;
+            }
+            else {
+                zip = "zip";
+            }
             QStringList argumentos;
             argumentos<<"-j"<<nombrezip<<vcdiff<<ScriptLinux<<ScriptWindows<<Leeme<<Destinodelta;
             QProcess *myProcess = new QProcess(parent());
