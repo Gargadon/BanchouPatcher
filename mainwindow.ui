@@ -28,17 +28,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Archivo de origen</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Origen">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>601</width>
-      <height>28</height>
-     </rect>
+     <string>Archivos de origen</string>
     </property>
    </widget>
    <widget class="QPushButton" name="OrigenBoton">
@@ -54,16 +44,6 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="Destino">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>100</y>
-      <width>601</width>
-      <height>28</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -74,7 +54,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Archivo destino</string>
+     <string>Archivos de destino</string>
     </property>
    </widget>
    <widget class="QPushButton" name="DestinoBoton">
@@ -136,7 +116,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Nombre del parche</string>
+     <string>Prefijo del parche</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="Parche">
@@ -183,6 +163,26 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QTextEdit" name="Origen">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>601</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="Destino">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>601</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -190,7 +190,7 @@
      <x>0</x>
      <y>0</y>
      <width>684</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAyuda">
