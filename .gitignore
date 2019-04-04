@@ -1,3 +1,4 @@
 BanchouPatcher3.pro.user*
-config.xml
+config/config.xml
 meta/package.xml
+packages/*
