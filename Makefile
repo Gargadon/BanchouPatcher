@@ -36,8 +36,8 @@ DEL_DIR       = rmdir
 MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
-DISTNAME      = BanchouPatcher33.0.0
-DISTDIR = /home/gargadon/BanchouPatcher3/.tmp/BanchouPatcher33.0.0
+DISTNAME      = BanchouPatcher33.1.0
+DISTDIR = /home/gargadon/BanchouPatcher3/.tmp/BanchouPatcher33.1.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now
 LIBS          = $(SUBLIBS) -lQt5Widgets -lQt5Gui -lQt5Core /usr/lib/libGL.so -lpthread   
@@ -764,9 +764,11 @@ compiler_rcc_clean:
 qrc_resources.cpp: resources.qrc \
 		/usr/bin/rcc \
 		BanchouPatcher3.desktop \
+		files/zip.exe \
 		files/xdelta3.exe \
 		files/musashi-miyamoto-sw.jpg \
-		icons/icon.png
+		icons/icon.png \
+		icons/icon.ico
 	/usr/bin/rcc -name resources resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h

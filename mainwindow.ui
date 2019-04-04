@@ -22,13 +22,16 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
-      <width>111</width>
-      <height>18</height>
+      <y>17</y>
+      <width>601</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Archivos de origen</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
     </property>
    </widget>
    <widget class="QPushButton" name="OrigenBoton">
@@ -48,13 +51,16 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>80</y>
-      <width>101</width>
-      <height>18</height>
+      <y>77</y>
+      <width>601</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Archivos de destino</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
     </property>
    </widget>
    <widget class="QPushButton" name="DestinoBoton">
@@ -84,13 +90,16 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
-      <width>61</width>
-      <height>18</height>
+      <y>137</y>
+      <width>591</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Directorio</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
     </property>
    </widget>
    <widget class="QPushButton" name="DirectorioBoton">
@@ -110,13 +119,16 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>200</y>
-      <width>121</width>
-      <height>18</height>
+      <y>197</y>
+      <width>591</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Prefijo del parche</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
     </property>
    </widget>
    <widget class="QLineEdit" name="Parche">
@@ -190,7 +202,7 @@
      <x>0</x>
      <y>0</y>
      <width>684</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAyuda">
