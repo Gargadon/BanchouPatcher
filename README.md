@@ -13,7 +13,7 @@ El ejecutable se encontrará dentro del directorio del proyecto, o en caso de ha
 ## Requisitos
 
  - qmake
- - Qt5
+ - Qt5 (qt5-default en Ubuntu)
  - xdelta3
  - zip (Opcional, necesario para comprimir los scripts y el archivo vcdiff)
 
