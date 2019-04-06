@@ -212,7 +212,15 @@
     <addaction name="actionAcerca_de"/>
     <addaction name="actionSalir"/>
    </widget>
+   <widget class="QMenu" name="menuIdioma">
+    <property name="title">
+     <string>Idioma</string>
+    </property>
+    <addaction name="actionEspa_ol"/>
+    <addaction name="actionIngl_s"/>
+   </widget>
    <addaction name="menuAyuda"/>
+   <addaction name="menuIdioma"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAcerca_de">
@@ -229,6 +237,16 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionEspa_ol">
+   <property name="text">
+    <string>Español</string>
+   </property>
+  </action>
+  <action name="actionIngl_s">
+   <property name="text">
+    <string>English</string>
    </property>
   </action>
  </widget>

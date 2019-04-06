@@ -58,3 +58,6 @@ RESOURCES += \
     resources.qrc
 
 RC_ICONS = icons/icon.ico
+
+TRANSLATIONS += translations/spanish.ts \
+translations/english.ts

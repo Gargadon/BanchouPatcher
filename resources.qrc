@@ -6,5 +6,7 @@
         <file>BanchouPatcher3.desktop</file>
         <file>files/zip.exe</file>
         <file>icons/icon.ico</file>
+        <file>translations/english.qm</file>
+        <file>translations/spanish.qm</file>
     </qresource>
 </RCC>

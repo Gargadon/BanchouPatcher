@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QProcess>
+#include <QTranslator>
+#include <QSettings>
 #include "acerca.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -13,7 +15,42 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    loadSettings();
 }
+
+void MainWindow::saveSettings()
+{
+    QSettings setting("Gargadon","BanchouPatcher");
+    setting.beginGroup("MainWindow");
+    if(lang.isEmpty())
+    {
+        setting.setValue("lang","en");
+    }
+    else {
+        setting.setValue("lang",lang);
+    }
+    setting.endGroup();
+}
+
+void MainWindow::loadSettings()
+{
+    QSettings setting("Gargadon","BanchouPatcher");
+    setting.beginGroup("MainWindow");
+
+    // Aqui cargamos el idioma
+    QString loadlang = QVariant(setting.value("lang")).toString();
+    if(loadlang == "en")
+    {
+        on_actionIngl_s_triggered();
+    }
+    else if (loadlang == "es") {
+        on_actionEspa_ol_triggered();
+    }
+    else {
+        on_actionIngl_s_triggered();
+    }
+}
+
 
 MainWindow::~MainWindow()
 {
@@ -229,4 +266,26 @@ void MainWindow::on_actionAcerca_de_triggered()
     Acerca acerca;
     acerca.setModal(true);
     acerca.exec();
+}
+
+void MainWindow::on_actionIngl_s_triggered()
+{
+    QTranslator *qtTranslator = new QTranslator();
+    QString file_translator = ":/translations/english.qm";
+    qtTranslator->load(file_translator);
+    qApp->installTranslator(qtTranslator);
+    ui->retranslateUi(this);
+    lang = "en";
+    saveSettings();
+}
+
+void MainWindow::on_actionEspa_ol_triggered()
+{
+    QTranslator *qtTraductor = new QTranslator();
+    QString file_translator = ":/translations/spanish.qm";
+    qtTraductor->load(file_translator);
+    qApp->installTranslator(qtTraductor);
+    ui->retranslateUi(this);
+    lang = "es";
+    saveSettings();
 }
