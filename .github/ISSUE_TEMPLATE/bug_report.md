@@ -7,9 +7,6 @@ assignees: Gargadon
 
 ---
 
-**In what languages I can submit my bug report?**
-Only in English or Spanish.
-
 **Describe the bug**
 A clear and concise description of what the bug is.
 
