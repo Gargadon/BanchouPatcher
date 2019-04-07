@@ -3,7 +3,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QDir>
-#include <QDebug>
+//#include <QDebug>
 #include <QMessageBox>
 #include <QProcess>
 #include <QTranslator>
@@ -181,6 +181,7 @@ void MainWindow::on_patchNow_clicked()
 
                 QFile file(ScriptLinux);
                 file.open(QIODevice::WriteOnly);
+                file.setPermissions(QFile::ExeUser | QFile::ExeGroup | QFile::ExeOther | QFile::ReadUser | QFile::WriteUser);
                 QTextStream stream(&file);
                 stream << TextoLinux;
                 file.close();
