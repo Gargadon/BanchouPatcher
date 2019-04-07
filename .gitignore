@@ -1,5 +1,7 @@
 BanchouPatcher3.pro.user*
 meta/package.xml
-packages/*
-config/config.xml
+packages*
+config/config*
 Makefile
+*.bat
+*.exe
