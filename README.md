@@ -1,4 +1,4 @@
-# BanchouPatcher3
+# BanchouPatcher
 
 BanchouPatcher es una GUI para crear parches para archivos utilizando xdelta3. Esta interfaz puede generar un empaquetado en formato ZIP para su mejor distribución. Evite subir archivos pesados, ahorre ancho de banda y envíe los cambios realizados a sus colegas.
 
@@ -18,6 +18,6 @@ El ejecutable se encontrará dentro del directorio del proyecto, o en caso de ha
  - zip (Opcional, necesario para comprimir los scripts y el archivo vcdiff)
 
 ## Paquetes de instalación
-BanchouPatcher3 ya está disponible para Windows. Revisa la sección "Releases" para bajar el paquete correspondiente a tu arquitectura.
+BanchouPatcher ya está disponible para Windows. Revisa la sección "Releases" para bajar el paquete correspondiente a tu arquitectura.
 
 Los usuarios de Linux por el momento deberán compilar el código fuente. No es nada complicado, pero en caso de encontrar algún error de compilación, favor de abrir un ticket en "Issues".
