@@ -51,13 +51,13 @@ icono.files = BanchouPatcher3.png
 INSTALLS += icono
 
 escritorio.path = /usr/share/applications
-escritorio.files = BanchouPatcher3.png
+escritorio.files = BanchouPatcher3.desktop
 INSTALLS += escritorio
 
 RESOURCES += \
     resources.qrc
 
-RC_ICONS = icons/icon.ico
+RC_ICONS = BanchouCRC.ico
 
 TRANSLATIONS += translations/spanish.ts \
 translations/english.ts
