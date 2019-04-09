@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QTextStream>
 #include <QDir>
 //#include <QDebug>
@@ -59,6 +60,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_OrigenBoton_clicked()
 {
+    ui->Origen->clear();
     QStringList fileName = QFileDialog::getOpenFileNames(this,tr("Abrir archivo de origen"),
                                                     ui->Origen->toPlainText(),
                                                     tr("Todos los archivos (*.*)"));
@@ -70,6 +72,7 @@ void MainWindow::on_OrigenBoton_clicked()
 
 void MainWindow::on_DestinoBoton_clicked()
 {
+    ui->Destino->clear();
     QStringList fileName = QFileDialog::getOpenFileNames(this,tr("Abrir archivo de destino"),
                                                     ui->Destino->toPlainText(),
                                                     tr("Todos los archivos (*.*)"));
@@ -128,9 +131,9 @@ void MainWindow::on_patchNow_clicked()
                     PrefijoParche = PrefijoParche + "-" + prefijo;
                 }
                 // Tomamos solo el nombre del archivo
-                QFile f(origen[i]);
+                QFileInfo f(origen[i]);
                 QString NombreOrigen = f.fileName();
-                QFile g(destino[i]);
+                QFileInfo g(destino[i]);
                 QString NombreDestino = g.fileName();
 
                 // Se crean los strings que iran a los archivos y scripts

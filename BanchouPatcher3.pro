@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = BanchouPatcher3
 TEMPLATE = app
 
-VERSION = 3.2.0
+VERSION = 3.2.1
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -57,7 +57,7 @@ INSTALLS += escritorio
 RESOURCES += \
     resources.qrc
 
-RC_ICONS = BanchouCRC.ico
+RC_ICONS = icons/icon.ico
 
 TRANSLATIONS += translations/spanish.ts \
 translations/english.ts
