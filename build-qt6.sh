@@ -15,7 +15,7 @@ make clean 2>/dev/null || true
 
 # Generar Makefile con Qt6
 echo "⚙️  Generando Makefile con qmake6..."
-qmake6 BanchouPatcher3.pro
+qmake6 BanchouPatcher.pro
 
 if [ $? -ne 0 ]; then
     echo "❌ Error en qmake6. Verifica que tienes Qt6 instalado."
@@ -36,7 +36,7 @@ if [ $? -eq 0 ]; then
     qmake6 --version
     echo ""
     echo "📚 Dependencias Qt6:"
-    ldd BanchouPatcher3 | grep Qt
+    ldd BanchouPatcher | grep Qt
     echo ""
     echo "🚀 Para ejecutar: ./BanchouPatcher"
 else
