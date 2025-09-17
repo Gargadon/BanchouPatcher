@@ -1,6 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource prefix="i18n">
-<file alias="spanish.qm">/home/gargadon/Source/BanchouPatcher/build/Qt_6_9_2-Debug/.qm/spanish.qm</file>
-<file alias="english.qm">/home/gargadon/Source/BanchouPatcher/build/Qt_6_9_2-Debug/.qm/english.qm</file>
-</qresource>
-</RCC>
