@@ -1,33 +1,61 @@
-; BanchouPatcher3.nsi
+; BanchouPatcher.nsi - Qt6 Modern Edition
 ;
-; This script is based on example1.nsi, but it remember the directory, 
-; has uninstall support and (optionally) installs start menu shortcuts.
+; Instalador moderno para BanchouPatcher con Qt6
+; - Sin dependencias de zip.exe embebido
+; - Usa PowerShell nativo de Windows para compresión
+; - Verificación automática de capacidades del sistema
+; - GPL-3 compatible
 ;
-; It will install BanchouPatcher3.nsi into a directory that the user selects.
+; Características modernas:
+; * Verificación de Windows 10+ para funciones de compresión
+; * Compatible exclusivamente con Qt6
+; * Instalación limpia sin archivos ZIP externos
 ;
-; in !define ARCH, please select 32 or 64 depending your detsination processor.
+; Selecciona ARCH: 32 o 64 según arquitectura de destino
 
-!define BANCHOUVER "3.2.1"
+!define BANCHOUVER "4.0.0"
+!define QTVER "6"
 !define ARP "Software\Microsoft\Windows\CurrentVersion\Uninstall\BanchouPatcher"
-!define ARCH "32"
+!define ARCH "64"
 
 !include "MUI2.nsh"
 !include "FileFunc.nsh"
+!include "LogicLib.nsh"
+!include "WinVer.nsh"
 
 !insertmacro MUI_PAGE_LICENSE "LICENSE"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 
+!insertmacro MUI_UNPAGE_CONFIRM
+!insertmacro MUI_UNPAGE_INSTFILES
+
 !insertmacro MUI_LANGUAGE "SpanishInternational"
+
+;--------------------------------
+; Custom Functions
+;--------------------------------
+
+; Check PowerShell availability for compression (Windows 10+)
+Function CheckPowerShellCompression
+  ; Check Windows version - PowerShell Compress-Archive requires Windows 10+
+  ${If} ${AtLeastWin10}
+    ; PowerShell should be available
+    DetailPrint "Windows 10+ detectado - Compresión PowerShell disponible"
+  ${Else}
+    ; Older Windows versions may not have Compress-Archive
+    MessageBox MB_ICONINFORMATION "Nota: Este sistema usa Windows anterior a 10. La funcionalidad de compresión puede requerir herramientas adicionales."
+  ${EndIf}
+FunctionEnd
 
 ;--------------------------------
 
 ; The name of the installer
-Name "BanchouPatcher"
+Name "BanchouPatcher ${BANCHOUVER} (Qt${QTVER})"
 
 ; The file to write
-OutFile "BanchouPatcher-${BANCHOUVER}-Win${ARCH}.exe"
+OutFile "BanchouPatcher-${BANCHOUVER}-Qt${QTVER}-Win${ARCH}.exe"
 
 ; The default installation directory
 InstallDir $PROGRAMFILES${ARCH}\BanchouPatcher
@@ -55,24 +83,28 @@ UninstPage instfiles
 ;Version Information
 
   VIProductVersion "${BANCHOUVER}.0"
-  VIAddVersionKey "ProductName" "BanchouPatcher"
+  VIAddVersionKey "ProductName" "BanchouPatcher Qt${QTVER}"
   VIAddVersionKey "CompanyName" "David Kantun"
-  VIAddVersionKey "FileDescription" "xdelta3 GUI"
+  VIAddVersionKey "FileDescription" "GUI moderna para xdelta3 con Qt${QTVER}"
   VIAddVersionKey "FileVersion" "${BANCHOUVER}"
-  VIAddVersionKey "LegalCopyright" ""
+  VIAddVersionKey "LegalCopyright" "GPL-3.0 License"
+  VIAddVersionKey "Comments" "Sin dependencias de ZIP - Usa PowerShell/zip nativo del sistema"
 
 ;--------------------------------
 
 ; The stuff to install
-Section "BanchouPatcher (required)"
+Section "BanchouPatcher (requerido)"
 
   SectionIn RO
-  
+
+  ; Check PowerShell compression capabilities
+  Call CheckPowerShellCompression
+
   ; Set output path to the installation directory.
   SetOutPath $INSTDIR
-  
-  ; Put file there
-  File /r "..\build-BanchouPatcher3-Desktop_Qt_5_12_2_MinGW_${ARCH}_bit-Release\release\*"
+
+  ; Put file there - Actualizar ruta para Qt6
+  File /r "..\build-BanchouPatcher-Desktop_Qt_${QTVER}_*_MinGW_${ARCH}_bit-Release\release\*"
   
   ; Write the installation path into the registry
   WriteRegStr HKLM SOFTWARE\BanchouPatcher "Install_Dir" "$INSTDIR"
@@ -81,7 +113,7 @@ Section "BanchouPatcher (required)"
   WriteRegStr HKLM "${ARP}" "DisplayName" "BanchouPatcher"
   WriteRegStr HKLM "${ARP}" "DisplayVersion" "${BANCHOUVER}"
   WriteRegStr HKLM "${ARP}" "Publisher" "David Kantun"
-  WriteRegStr HKLM "${ARP}" "DisplayIcon" '"$INSTDIR\BanchouPatcher3.exe"'
+  WriteRegStr HKLM "${ARP}" "DisplayIcon" '"$INSTDIR\BanchouPatcher.exe"'
   WriteRegStr HKLM "${ARP}" "UninstallString" '"$INSTDIR\uninstall.exe"'
   WriteRegDWORD HKLM "${ARP}" "NoModify" 1
   WriteRegDWORD HKLM "${ARP}" "NoRepair" 1
@@ -98,7 +130,7 @@ Section "Start Menu Shortcuts"
 
   CreateDirectory "$SMPROGRAMS\BanchouPatcher"
   CreateShortcut "$SMPROGRAMS\BanchouPatcher\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
-  CreateShortcut "$SMPROGRAMS\BanchouPatcher\BanchouPatcher.lnk" "$INSTDIR\BanchouPatcher3.exe" "" "$INSTDIR\BanchouPatcher3.exe" 0
+  CreateShortcut "$SMPROGRAMS\BanchouPatcher\BanchouPatcher.lnk" "$INSTDIR\BanchouPatcher.exe" "" "$INSTDIR\BanchouPatcher.exe" 0
   
 SectionEnd
 

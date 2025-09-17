@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=BanchouPatcher
-Comment=xdelta3 GUI written in Qt5
-Exec=BanchouPatcher3
-Icon=BanchouPatcher3
-Categories=Utility;

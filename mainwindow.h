@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <memory>
+#include "patchgenerator.h"
 
 namespace Ui {
 class MainWindow;
@@ -34,12 +36,18 @@ private slots:
 
     void on_actionEspa_ol_triggered();
 
+private slots:
+    void onPatchProgress(int current, int total);
+    void onPatchCompleted();
+    void onPatchError(const QString &error);
+
 private:
-    Ui::MainWindow *ui;
+    std::unique_ptr<Ui::MainWindow> ui;
+    PatchGenerator *patchGenerator;
 
     void loadSettings();
-
     void saveSettings();
+    PatchGenerator::PatchParams getPatchParams();
 
     QString lang;
 };

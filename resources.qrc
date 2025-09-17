@@ -3,10 +3,9 @@
         <file>icons/icon.png</file>
         <file>files/xdelta3.exe</file>
         <file>files/musashi-miyamoto-sw.jpg</file>
-        <file>BanchouPatcher3.desktop</file>
-        <file>files/zip.exe</file>
         <file>icons/icon.ico</file>
         <file>translations/english.qm</file>
         <file>translations/spanish.qm</file>
+        <file>BanchouPatcher.desktop</file>
     </qresource>
 </RCC>
