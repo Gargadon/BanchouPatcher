@@ -2,4 +2,5 @@ BanchouPatcher
 BanchouPatcher.pro.user*
 Makefile
 *.exe
+*.o
 build/*
